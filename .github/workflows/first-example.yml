@@ -2,18 +2,24 @@ name: Frist Workflow
 
 on: push
 
-jobs: 
-    first_job:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Welcome Message 
-              run: echo "My first github action"
-            
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-            - name: list files
-              run: ls
-            
-            - name: Read File Contents
-              run: cat README.md
+      - name: Welcome Message 
+        run: echo "My first GitHub action"
 
-              
+      - name: List files
+        run: ls
+
+      - name: Print working directory
+        run: pwd
+
+      - name: List all files in the current directory
+        run: ls -la
+
+      - name: Read File Contents
+        run: cat README.md
